@@ -41,7 +41,7 @@ chmod +x main.py
 python main.py <command> [options]
 ```
 
-### Commands:
+## Commands:
 
 - `extract`: Extract text from a PDF file
 - `info`: Extract metadata from a PDF file
@@ -68,3 +68,60 @@ python main.py <command> [options]
 - `-o, --output-dir`: Output directory (default: extracted_pdfs)
 - `-p, --password`: Password for encrypted PDFs
 - `-r, --recursive`: Recursively search for PDF files in subdirectories
+
+## 📝 Examples
+
+### Extract text from a PDF:
+```bash
+python main.py extract document.pdf
+```
+
+### Extract text from specific pages:
+```bash
+python main.py extract document.pdf -s 5 -e 10
+```
+
+### Extract text and save to a specific file:
+```bash
+python main.py extract document.pdf -o extracted_text.txt
+```
+
+### Extract text from an encrypted PDF:
+```bash
+python main.py extract encrypted.pdf -p mypassword
+```
+
+### Extract text matching a pattern:
+```bash
+python main.py extract document.pdf -r "email: \S+@\S+\.\S+"
+```
+
+### Extract emails and save as JSON:
+```bash
+python main.py extract document.pdf -r "\S+@\S+\.\S+" -f json -o emails.json
+```
+
+### Extract document information:
+```bash
+python main.py info document.pdf
+```
+
+### Save document information to a file:
+```bash
+python main.py info document.pdf -o document_info.json
+```
+
+### Process all PDFs in a directory:
+```bash
+python main.py batch pdf_directory
+```
+
+### Process multiple specific PDF files:
+```bash
+python main.py batch "file1.pdf file2.pdf file3.pdf"
+```
+
+### Process PDFs recursively in all subdirectories:
+```bash
+python main.py batch pdf_directory -r
+```
