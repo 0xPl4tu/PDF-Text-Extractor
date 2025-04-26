@@ -125,3 +125,24 @@ python main.py batch "file1.pdf file2.pdf file3.pdf"
 ```bash
 python main.py batch pdf_directory -r
 ```
+
+## 🧩 Advanced Usage
+
+### Working with Regular Expressions
+
+You can use regular expressions to extract specific patterns from PDFs:
+
+- Extract all email addresses:
+  ```bash
+  python main.py extract document.pdf -r "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+  ```
+  
+- Extract phone numbers:
+```bash
+python main.py extract document.pdf -r "\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}"
+```
+
+- Extract URLs:
+```bash
+python main.py extract document.pdf -r "https?://[^\s]+"
+```
