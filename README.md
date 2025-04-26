@@ -138,11 +138,23 @@ You can use regular expressions to extract specific patterns from PDFs:
   ```
   
 - Extract phone numbers:
-```bash
-python main.py extract document.pdf -r "\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}"
-```
+  ```bash
+  python main.py extract document.pdf -r "\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}"
+  ```
 
 - Extract URLs:
+  ```bash
+  python main.py extract document.pdf -r "https?://[^\s]+"
+  ```
+  
+### Processing Large Files
+
+For very large PDF files, you may want to extract text page by page:
 ```bash
-python main.py extract document.pdf -r "https?://[^\s]+"
+#Extract text from pages 1-10
+python main.py extract large.pdf -o large_part1.txt -s 1 -e 10
+```
+```bash
+# Extract text from pages 11-20
+python main.py extract large.pdf -o large_part2.txt -s 11 -e 20
 ```
