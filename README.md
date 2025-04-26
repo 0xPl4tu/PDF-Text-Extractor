@@ -151,10 +151,30 @@ You can use regular expressions to extract specific patterns from PDFs:
 
 For very large PDF files, you may want to extract text page by page:
 ```bash
-#Extract text from pages 1-10
+# Extract text from pages 1-10
 python main.py extract large.pdf -o large_part1.txt -s 1 -e 10
 ```
 ```bash
 # Extract text from pages 11-20
 python main.py extract large.pdf -o large_part2.txt -s 11 -e 20
 ```
+
+### Using with Other Tools
+
+The extracted text can be piped to other command-line tools:
+
+```bash
+# Count words in a PDF
+python main.py extract document.pdf -o - | wc -w
+```
+```bash
+# Search for a keyword in a PDF
+python main.py extract document.pdf -o - | grep "keyword"
+```
+
+## ⚠️ Limitations
+
+- Some PDFs with complex layouts or scanned images may not extract perfectly
+- PDFs with custom fonts or unusual encodings might have character conversion issues
+- Very large PDFs may require significant memory resources
+- Some heavily protected PDFs may not be accessible even with the correct password
