@@ -178,3 +178,7 @@ python main.py extract document.pdf -o - | grep "keyword"
 - PDFs with custom fonts or unusual encodings might have character conversion issues
 - Very large PDFs may require significant memory resources
 - Some heavily protected PDFs may not be accessible even with the correct password
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
